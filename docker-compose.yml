@@ -27,9 +27,9 @@ services:
       - traefik
     labels:
       - traefik.enable=true
-      - traefik.http.routers.grafana.rule=Host(`grafana.example.com`)
+      - traefik.http.routers.grafana.rule=Host(`grafana.${BASE_DOMAIN}`)
       - traefik.http.routers.grafana.entrypoints=websecure
-      - traefik.http.routers.grafana.tls.certresolver=letsencrypt
+      - traefik.http.routers.grafana.tls.certresolver=cloudflare
       - traefik.http.routers.grafana.service=grafana
       - traefik.http.services.grafana.loadbalancer.server.port=3000
 

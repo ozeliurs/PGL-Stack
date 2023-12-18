@@ -49,6 +49,8 @@ services:
     restart: unless-stopped
     volumes:
       - '/:/host:ro,rslave'
+    networks:
+      - traefik
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.0
@@ -63,6 +65,8 @@ services:
       - /dev/kmsg
     privileged: true
     restart: unless-stopped
+    networks:
+      - traefik
 
 
 networks:
